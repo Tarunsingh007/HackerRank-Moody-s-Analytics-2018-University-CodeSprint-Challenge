@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    int n;
+    cin>>n;
+    vector<double> avgarr(n);
+    vector<double> algoarr(n);
+    vector<vector<int>> p(n);
+    for(int i=0; i<n;i++)
+    {
+        avgarr[i]=0.00000000000;algoarr[i]=0.000000000000;
+        int m;
+        cin>>m;
+        p[i]=vector<int>(m);
+        for(int j=0;j<m;j++)
+        {
+            cin>>p[i][j];
+            avgarr[i]+=p[i][j];
+        }
+        avgarr[i]=(double)(avgarr[i]*1.000000000000)/m;
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<p[i].size(); j++)
+        {
+            int k=0;
+            while(k<n)
+            {
+                algoarr[k]+=abs(avgarr[k]-p[i][j]);
+                k++;
+            }
+        }
+    }
+    sort(algoarr.begin(),algoarr.end());
+    cout<<fixed<<setprecision(12)<<algoarr[0];
+    
+}

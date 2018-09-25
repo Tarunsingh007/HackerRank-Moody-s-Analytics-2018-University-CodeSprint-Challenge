@@ -1,0 +1,23 @@
+void solve(vector<int> low, vector<int> high, vector<int> close)
+{
+    int gu=0,gd=0;
+    for(int i=1; i<low.size(); i++)
+    {
+        for(int j=i-1; j<close.size(); j++)
+        {
+            if(low[i]>close[j])
+                gu++;
+            break;
+        }
+    }
+     for(int i=1; i<high.size(); i++)
+    {
+        for(int j=i-1; j<close.size(); j++)
+        {
+            if(high[i]<close[j])
+                gd++;
+            break;
+        }
+    }
+    cout<<gu<<" "<< gd;
+}
